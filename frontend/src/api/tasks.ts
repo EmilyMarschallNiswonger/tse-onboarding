@@ -102,3 +102,16 @@ export async function getAllTasks(): Promise<APIResult<Task[]>> {
     return handleAPIError(error);
   }
 }
+
+export async function updateTask(task: UpdateTaskRequest): Promise<APIResult<Task>> {
+  try {
+    const response = await post("/api/task", task);
+    const json = (await response.json()) as TaskJSON;
+    if (!response.ok) {
+      throw new Error("Failed to update task");
+    }
+    return { success: true, data: parseTask(json) };
+  } catch (error) {
+    return handleAPIError(error);
+  }
+}
