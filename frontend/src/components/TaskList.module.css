@@ -1,0 +1,15 @@
+.title {
+  font: var(--font-heading);
+}
+
+.outerFormat {
+  margin-top: 3rem;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1rem;
+}
